@@ -1,0 +1,32 @@
+---
+- hosts: localhost
+  become: true
+  gather_facts: true
+  pre_tasks:
+    - name: Add Debian Non-Free and Contrib Repository
+      apt_repository:
+        repo: deb http://ftp.is.debian.org/debian stretch main contrib non-free
+        state: present
+        update_cache: true
+    - name: Install Necessary Packages
+      apt: name={{item}} state=latest
+      with_items:
+        - git
+        - tree
+        - guake
+        - zsh
+        - virtualbox
+        - vagrant
+        - screen
+        - xinput
+        - python-pip
+    - name: Install docker-py
+      pip:
+        name: docker-py
+        state: latest
+  roles:
+    - { role: theNewFlesh.sublime, sublime_build: 3126 }
+- hosts: localhost
+  tasks:
+    - name: configure user
+      copy: src=files/ dest=~/
