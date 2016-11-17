@@ -1,0 +1,12 @@
+---
+# tasks file for nodejs
+- name: Add NodeJS Repository
+  apt_repository:
+    filename: nodejs
+    repo: deb https://deb.nodesource.com/node_{{nodejs_version}} {{distribution[ansible_distribution_release]}} main
+    state: present
+    update_cache: yes
+- name: Install NodeJS
+  apt:
+    name: nodejs
+    state: latest

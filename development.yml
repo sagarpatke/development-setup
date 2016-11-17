@@ -23,6 +23,7 @@
         - unifont
   roles:
     - { role: theNewFlesh.sublime, sublime_build: 3126 }
+    - { role: sagarpatke.nodejs, nodejs_version: 7.x }
 - hosts: localhost
   tasks:
     - name: configure user

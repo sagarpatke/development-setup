@@ -1,0 +1,6 @@
+---
+# defaults file for nodejs
+nodejs_version: 7.x
+
+distribution:
+  "NA": sid
