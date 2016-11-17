@@ -19,11 +19,8 @@
         - vagrant
         - screen
         - xinput
-        - python-pip
-    - name: Install docker-py
-      pip:
-        name: docker-py
-        state: latest
+        - vim
+        - unifont
   roles:
     - { role: theNewFlesh.sublime, sublime_build: 3126 }
 - hosts: localhost
